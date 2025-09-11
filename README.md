@@ -56,3 +56,12 @@ Once inside the container, check if ROOT is installed and accessible:
 ```bash
 root --version
 ```
+
+### **Step 3  Build the Base Container**
+
+Use the provided **`final.def`** file to build a sandbox environment called **`final_container`**:
+
+```bash
+#  Build the sandbox container
+apptainer build --sandbox final_container final.def
+```
