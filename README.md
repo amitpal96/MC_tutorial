@@ -23,8 +23,7 @@ Before starting, ensure you have:
   - log4cpp  
   - libxml2  
   - GENIE  
-  - NuWro  
-  - (and others, as specified in the `.def` file)  
+  - NuWro (will be cloned from github)  
 
  **All package tarballs** are available here:  
  [Download from Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn)  
