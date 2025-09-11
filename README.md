@@ -42,3 +42,11 @@ Use the provided **`tutorial.def`** file to build a sandbox environment called *
 ```bash
 #  Build the sandbox container
 apptainer build --sandbox work_container tutorial.def
+
+### **Step 2  Verify ROOT Installation**
+
+Once the base container is built, open an interactive shell inside it:
+
+```bash
+# Enter the container
+apptainer shell --writable work_container
