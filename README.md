@@ -51,3 +51,8 @@ Once the base container is built, open an interactive shell inside it:
 ```bash
 # Enter the container
 apptainer shell --writable work_container
+```
+Once inside the container, check if ROOT is installed and accessible:
+```bash
+root --version
+```
