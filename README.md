@@ -65,3 +65,11 @@ Use the provided **`final.def`** file to build a sandbox environment called **`f
 #  Build the sandbox container
 apptainer build --sandbox final_container final.def
 ```
+##  Step 4: Running GENIE and NuWro
+
+After building the final container, you can run **GENIE** inside the sandbox.
+
+### Example: Generate events
+```bash
+apptainer shell --writable final_sandbox
+```
