@@ -68,7 +68,16 @@ apptainer build --sandbox final_container final.def
 
 After building the final container, you can run **GENIE** inside the sandbox.
 
-### Example: Generate events
+### Open apptainer
 ```bash
 apptainer shell --writable final_sandbox
+```
+
+### GENIE check
+```bash
+gevgen --help
+```
+### NuWro check
+```bash
+nuwro --help
 ```
