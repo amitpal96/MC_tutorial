@@ -79,5 +79,5 @@ gevgen --help
 ```
 ### NuWro check
 ```bash
-nuwro --help
+nuwro --version
 ```
