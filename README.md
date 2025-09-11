@@ -17,6 +17,15 @@ All of these tools are wrapped inside **Apptainer containers** , making the setu
   sudo apt update
   sudo apt install -y apptainer
   ```
+  - In Fedora
+  ```bash
+  sudo dnf install -y apptainer
+  ```
+  - In AlmaLinux/CentOS
+  ```bash
+  sudo dnf install -y epel-release
+  sudo dnf install -y apptainer
+  ```
 ---
 
 ##  Requirements
@@ -25,13 +34,13 @@ Before starting, ensure you have:
 
 -  A **Linux system** with [Apptainer](https://apptainer.org/) installed  
 -  **Tarballs of required packages:**  
-  - ROOT  
-  - Pythia6  
-  - LHAPDF  
-  - log4cpp  
-  - libxml2  
-  - GENIE  
-  - NuWro (will be cloned from github)  
+   - ROOT  
+   - Pythia6  
+   - LHAPDF 
+   - log4cpp  
+   - libxml2
+   - GENIE
+   - NuWro (will be cloned from github)  
 
  **All package tarballs** are available here:  
  [Download from Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn)  
