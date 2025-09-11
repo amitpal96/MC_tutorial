@@ -9,6 +9,14 @@ This repository provides **container definition files** to build a complete envi
 
 All of these tools are wrapped inside **Apptainer containers** , making the setup portable and reproducible.
 
+## Container Installation Guide
+- Visit [Installing Apptainer](https://apptainer.org/docs/admin/1.4/installation.html)
+  - In Ubuntu
+  ```bash
+  sudo add-apt-repository -y ppa:apptainer/ppa
+  sudo apt update
+  sudo apt install -y apptainer
+  ```
 ---
 
 ##  Requirements
