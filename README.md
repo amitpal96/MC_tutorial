@@ -16,8 +16,7 @@ All of these tools are wrapped inside **Apptainer containers** , making the setu
 Before starting, ensure you have:
 
 -  A **Linux system** with [Apptainer](https://apptainer.org/) installed  
--  At least **X GB free disk space**  
--  Tarballs of required packages:  
+-  **Tarballs of required packages:**  
   - ROOT  
   - Pythia6  
   - LHAPDF  
