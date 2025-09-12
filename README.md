@@ -30,7 +30,7 @@ This repository will help to install **ROOT** and **neutrino Monte Carlo simulat
   sudo dnf install -y epel-release
   sudo dnf install -y apptainer
   ```
-  - In *Mac/Windows*, install apptainer via virtual machine (VM). For Mac follow: [Installation in Mac](https://apptainer.org/docs/admin/1.4/installation.html#mac) or [Installtion in Windows](https://apptainer.org/docs/admin/1.4/installation.html#windows)
+  - In *Mac/Windows*, install apptainer via virtual machine (VM). For Mac follow: [Installation in Mac](https://apptainer.org/docs/admin/1.4/installation.html#mac), for Windows follow: [Installtion in Windows](https://apptainer.org/docs/admin/1.4/installation.html#windows)
   - To check installtion, run
   ```bash
   apptainer --version
@@ -107,7 +107,6 @@ apptainer shell --writable sandbox_container2
 ```
 ```bash
 cd /opt/GENIE
-chmod +x do_end_genie.sh
 ./do_end_genie.sh
 ```
 This should set up your GENIE. You are good to go.
