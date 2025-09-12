@@ -98,3 +98,29 @@ gevgen --help
 ```bash
 nuwro --version
 ```
+
+##  New step 1: Installation of prerequisites
+```bash
+apptainer build --sandbox sandbox_container1/ setup_container1.def
+```
+
+##  New	step 1:	Installation of	root and setting environment for GENIE
+```bash
+apptainer build --sandbox sandbox_container2/ setup_container2.def
+```
+### Next step 3: GENIE installation
+```bash
+apptainer shell --writable sandbox_container2
+```
+```bash
+cd /opt/GENIE
+chmod +x do_end_genie.sh
+./do_end_genie.sh
+```
+
+```bash
+./configure --prefix=/opt/GENIE_build --enable-atmo --enable-lhapdf6 --with-lhapdf6-lib=/opt/lhapdf_install/lib --with-lhapdf6-inc=/opt/lhapdf_install/include --with-log4cpp-inc=/opt/log4cpp_install/include --with-log4cpp-lib=/opt/log4cpp_install/lib --with-pythia6-lib=/opt/pythia6/v6_428/lib --with-pythia6-inc=/opt/pythia6/v6_428/inc
+```
+```bash
+make -j4
+```

@@ -1,0 +1,54 @@
+Bootstrap: localimage
+From: sandbox_container1
+
+%files
+	root_v6.30.02.source.tar.gz /opt/
+	do_end_genie.sh /opt/
+
+%post
+	cd /opt
+    	tar -xzf root_v6.30.02.source.tar.gz
+    	cd root-6.30.02
+    	mkdir -p build && cd build
+    	cmake .. \
+              	 -DCMAKE_INSTALL_PREFIX=/opt/root \
+              	 -DPYTHON_EXECUTABLE=$(which python3) \
+              	 -Dpyroot=ON \
+              	 -Droofit=ON \
+              	 -Dbuiltin_afterimage=ON \
+              	 -Dminuit2=ON \
+              	 -Dgsl=ON \
+              	 -Dfftw3=ON \
+              	 -Dmathmore=ON \
+	      	 -Dbuiltin_gsl=OFF \
+              	 -Dpythia6=ON \
+              	 -DPYTHIA6_INCLUDE_DIR=/opt/pythia/v6_428 \
+              	 -DPYTHIA6_LIBRARY=/opt/pythia/v6_428/lib/libPythia6.so \
+	      	 -Dpython3=ON \
+	      	 -Dxrootd=OFF \
+              	 -DCMAKE_BUILD_TYPE=Release
+	make -j$(nproc)
+	make install
+
+	#GENIE environment
+	cd /opt
+	tar -xzf Generator-R-3_04_00.tar.gz
+	mv Generator-R-3_04_00 GENIE
+	mkdir -p /opt/GENIE_build
+	mv /opt/do_end_genie.sh GENIE
+
+
+%environment
+	# ROOT environment variables
+    	export ROOTSYS=/opt/root
+    	export PATH=$ROOTSYS/bin:$PATH
+    	export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+    	export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH
+
+	# GENIE                                                                                     
+	export GENIE=/opt/GENIE
+	export LD_LIBRARY_PATH=$GENIE/lib:$LD_LIBRARY_PATH
+        export PATH=$GENIE/bin:$PATH
+%runscript
+
+	/bin/bash
