@@ -47,9 +47,8 @@ cd MC_tutorial
 ```
 
 ### **Step 2: Download tar files**
-**All package tarballs** are available here:
- [Download from Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn)
- Place all the tar files inside **MC_tutorial** directory
+ Download tarballs of all required package from:
+ [Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn) and place all of them inside `**MC_tutorial**` directory
 
 ### **Step 3: Build the first container**
 Use the provided **`setup_container1.def`** file to build a sandbox environment called **`sandbox_container1`**:
