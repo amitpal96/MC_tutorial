@@ -62,7 +62,7 @@ apptainer build --sandbox sandbox_container1/ setup_container1.def
 ```bash
 apptainer build --sandbox sandbox_container2/ setup_container2.def
 ```
-This step will take ~2 hours as it builds ROOT from source file.
+This step will take **~2 hours** as it builds ROOT from source file.
 
 
 ### **Step 5: Enter apptainer and check root version**
@@ -73,7 +73,7 @@ apptainer shell --writable sandbox_container2
 ```bash
 root
 ```
-#This should show `Welcome to ROOT 6.30/02`
+This should show `Welcome to ROOT 6.30/02`
 
 ### **Step 6: GENIE installtion inside the apptainer**
 
