@@ -5,7 +5,8 @@ This repository will help to install **ROOT** and **neutrino Monte Carlo simulat
 
 ## Requirements
 
-Before starting, ensure you have [Apptainer](https://apptainer.org/) installed
+   - Installed [Apptainer](https://apptainer.org/) in your system
+   - Approx 10 GB free space
 
 ---
 ## Apptainer Installation Guide
@@ -34,7 +35,7 @@ Before starting, ensure you have [Apptainer](https://apptainer.org/) installed
   ```bash
   apptainer --version
   ```
-  It should show your apptainer version. For me it was "apptainer version 1.4.2"
+  It should show your apptainer version. For me it was `apptainer version 1.4.2`
 ---
 
 ##  Setup Instructions
