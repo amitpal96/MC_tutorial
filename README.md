@@ -1,114 +1,107 @@
 #  Neutrino Monte Carlo Simulator with Apptainer
 
 Welcome! 
-This repository provides **container definition files** to build a complete environment for **neutrino Monte Carlo simulations** using:
+This repository will help to install **ROOT** and **neutrino Monte Carlo simulation** software inside an independent **Apptainer**:
 
--  **ROOT**  
--  **GENIE**  
--  **NuWro**
+## Requirements
 
-All of these tools are wrapped inside **Apptainer containers** , making the setup portable and reproducible.
+Before starting, ensure you have [Apptainer](https://apptainer.org/) installed
 
-## Container Installation Guide
-- Visit [Installing Apptainer](https://apptainer.org/docs/admin/1.4/installation.html)
-  - In Ubuntu
+---
+## Apptainer Installation Guide
+- I would highly recommend to follow official apptainer installtion instructions at [Installing Apptainer](https://apptainer.org/docs/admin/1.4/installation.html). However some basic commands are given below. If you already have apptainer installed, skip this section.
+  - In *Ubuntu*
+  ```bash
+  sudo apt update
+  sudo apt install -y software-properties-common
+  ```
   ```bash
   sudo add-apt-repository -y ppa:apptainer/ppa
   sudo apt update
   sudo apt install -y apptainer
   ```
-  - In Fedora
+  - In *Fedora*
   ```bash
   sudo dnf install -y apptainer
   ```
-  - In AlmaLinux/CentOS
+  - In *AlmaLinux/CentOS*
   ```bash
   sudo dnf install -y epel-release
   sudo dnf install -y apptainer
   ```
----
-
-##  Requirements
-
-Before starting, ensure you have:
-
--  A **Linux system** with [Apptainer](https://apptainer.org/) installed  
--  **Tarballs of required packages:**  
-   - ROOT  
-   - Pythia6  
-   - LHAPDF 
-   - log4cpp  
-   - libxml2
-   - GENIE
-   - NuWro (will be cloned from github)  
-
- **All package tarballs** are available here:  
- [Download from Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn)  
-
-Once downloaded, place everything inside a folder, e.g. **`packages/`**.
-
+  - In *Mac/Windows*, install apptainer via virtual machine (VM). For Mac follow: [Installation in Mac](https://apptainer.org/docs/admin/1.4/installation.html#mac) or [Installtion in Windows](https://apptainer.org/docs/admin/1.4/installation.html#windows)
+  - To check installtion, run
+  ```bash
+  apptainer --version
+  ```
+  It should show your apptainer version. For me it was "apptainer version 1.4.2"
 ---
 
 ##  Setup Instructions
 
-### **Step 1  Build the Base Container**
-
-Use the provided **`tutorial.def`** file to build a sandbox environment called **`work_container`**:
-
+### **Step 1: Clone git repository**
 ```bash
-#  Build the sandbox container
-apptainer build --sandbox work_container tutorial.def
+git clone https://github.com/amitpal96/MC_tutorial.git
+cd MC_tutorial
 ```
 
-### **Step 2  Verify ROOT Installation**
+### **Step 2: Download tar files**
+**All package tarballs** are available here:
+ [Download from Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn)
+ Place all the tar files inside **MC_tutorial** directory
 
-Once the base container is built, open an interactive shell inside it:
+### **Step 3: Build the first container**
+Use the provided **`setup_container1.def`** file to build a sandbox environment called **`sandbox_container1`**:
 
-```bash
-# Enter the container
-apptainer shell --writable work_container
-```
-Once inside the container, check if ROOT is installed and accessible:
-```bash
-root --version
-```
-
-### **Step 3  Build the Base Container**
-
-Use the provided **`final.def`** file to build a sandbox environment called **`final_container`**:
-
-```bash
-#  Build the sandbox container
-apptainer build --sandbox final_container final.def
-```
-##  Step 4: Running GENIE and NuWro
-
-After building the final container, you can run **GENIE** inside the sandbox.
-
-### Open apptainer
-```bash
-apptainer shell --writable final_sandbox
-```
-
-### GENIE check
-```bash
-gevgen --help
-```
-### NuWro check
-```bash
-nuwro --version
-```
-
-##  New step 1: Installation of prerequisites
 ```bash
 apptainer build --sandbox sandbox_container1/ setup_container1.def
 ```
 
-##  New	step 1:	Installation of	root and setting environment for GENIE
+### **Step 4: Build the second apptainer using **`setup_container2.def`**:**
+
 ```bash
 apptainer build --sandbox sandbox_container2/ setup_container2.def
 ```
-### Next step 3: GENIE installation
+This step will take ~2 hours as it builds ROOT from source file.
+
+
+### **Step 5: Enter apptainer and check root version**
+
+```bash
+apptainer shell --writable sandbox_container2
+```
+```bash
+root
+```
+#This should show `Welcome to ROOT 6.30/02`
+
+### **Step 6: GENIE installtion inside the apptainer**
+
+```bash
+cd /opt/GENIE
+chmod +x do_end_genie.sh
+./do_end_genie.sh
+```
+This will setup environment for GENIE.
+
+```bash
+./configure --prefix=/opt/GENIE_build --enable-atmo --enable-lhapdf6 --with-lhapdf6-lib=/opt/lhapdf_install/lib --with-lhapdf6-inc=/opt/lhapdf_install/include --with-log4cpp-inc=/opt/log4cpp_install/include --with-log4cpp-lib=/opt/log4cpp_install/lib --with-pythia6-lib=/opt/pythia/v6_428/lib --with-pythia6-inc=/opt/pythia/v6_428/inc --with-libxml2-lib=/opt/libxml2_install/lib with-libxml2-inc=/opt/libxml2_install/include/libxml2
+```
+```bash
+make -j4
+```
+
+Congratulations! You have finally installed GENIE. If you encounter any **error**, do once
+```bash
+make clean
+make -j4
+```
+If it does not resolve, contact amit.pal@niser.ac.in.
+
+
+### **Step 7: For further use of GENIE**
+
+Once GENIE is installed properly, you just need to do,
 ```bash
 apptainer shell --writable sandbox_container2
 ```
@@ -117,10 +110,5 @@ cd /opt/GENIE
 chmod +x do_end_genie.sh
 ./do_end_genie.sh
 ```
+This should set up your GENIE. You are good to go.
 
-```bash
-./configure --prefix=/opt/GENIE_build --enable-atmo --enable-lhapdf6 --with-lhapdf6-lib=/opt/lhapdf_install/lib --with-lhapdf6-inc=/opt/lhapdf_install/include --with-log4cpp-inc=/opt/log4cpp_install/include --with-log4cpp-lib=/opt/log4cpp_install/lib --with-pythia6-lib=/opt/pythia/v6_428/lib --with-pythia6-inc=/opt/pythia/v6_428/inc --with-libxml2-lib=/opt/libxml2_install/lib with-libxml2-inc=/opt/libxml2_install/include/libxml2
-```
-```bash
-make -j4
-```
