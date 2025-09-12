@@ -119,7 +119,7 @@ chmod +x do_end_genie.sh
 ```
 
 ```bash
-./configure --prefix=/opt/GENIE_build --enable-atmo --enable-lhapdf6 --with-lhapdf6-lib=/opt/lhapdf_install/lib --with-lhapdf6-inc=/opt/lhapdf_install/include --with-log4cpp-inc=/opt/log4cpp_install/include --with-log4cpp-lib=/opt/log4cpp_install/lib --with-pythia6-lib=/opt/pythia6/v6_428/lib --with-pythia6-inc=/opt/pythia6/v6_428/inc
+./configure --prefix=/opt/GENIE_build --enable-atmo --enable-lhapdf6 --with-lhapdf6-lib=/opt/lhapdf_install/lib --with-lhapdf6-inc=/opt/lhapdf_install/include --with-log4cpp-inc=/opt/log4cpp_install/include --with-log4cpp-lib=/opt/log4cpp_install/lib --with-pythia6-lib=/opt/pythia/v6_428/lib --with-pythia6-inc=/opt/pythia/v6_428/inc --with-libxml2-lib=/opt/libxml2_install/lib with-libxml2-inc=/opt/libxml2_install/include/libxml2
 ```
 ```bash
 make -j4
