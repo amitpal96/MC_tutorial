@@ -3,6 +3,7 @@ From: sandbox_container1
 
 %files
 	root_v6.30.02.source.tar.gz /opt/
+	Generator-R-3_04_00.tar.gz /opt/
 	do_end_genie.sh /opt/
 
 %post
