@@ -48,25 +48,64 @@ cd MC_tutorial
 
 ### **Step 2: Building apptainer sandbox**
 
-Apptainer sandbox can be built in two different ways:
+Apptainer sandbox can be built in two different ways: *Option A* and *Option B*. *Option A* is more simpler and easier way. 
 
 #### *Option A: Using prebuild sif image*
 
-     -##### *Step I: Download sif image*
-     Download `genie.sif` from [Google Drive](https://drive.google.com/drive/u/2/folders/1vAZHhfS5ZzjIlKdCbkXQQTngJK8MBuTV) and place it inside `**MC_tutorial**` directory
+##### *Step I: Download sif image*
+Download `genie.sif` from [Google Drive](https://drive.google.com/drive/u/2/folders/1vAZHhfS5ZzjIlKdCbkXQQTngJK8MBuTV) and place it inside `**MC_tutorial**` directory
 
-### **Step 2: Download tar files**
+##### *Step II: Make sandbox using `genie.sif`*
+```bash
+apptainer build --sandbox genie_sandbox/ genie.sif
+```
+
+##### *Step III: Enter the apptainer shell*
+```bash
+apptainer shell --writable genie_sandbox/
+```
+
+##### *Step IV: Set environment for GENIE*
+```bash
+cd /opt/mywork/
+source do_end_genie.sh
+```
+
+##### *Step V: Check genie*
+
+```bash
+genie
+```
+You should see `Version 3.04.00` on your screen
+
+##### *Step VI: For further use of GENIE*
+Enter the apptainer shell with
+```bash
+apptainer shell --writable genie_sandbox/
+```
+Go to correct path and setup environment
+```bash
+cd /opt/mywork/
+source do_end_genie.sh
+```
+
+
+
+#### *Option B: Build apptainer sandbox from scratch*
+This is more complicated and time taking process. I would recommend to go with *Option A*
+
+##### **Step I: Download tar files**
  Download tarballs of all required package from:
  [Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn) and place all of them inside `**MC_tutorial**` directory
 
-### **Step 3: Build the first apptainer**
+##### **Step II: Build the first apptainer**
 Use the provided **`setup_container1.def`** file to build a sandbox environment called **`sandbox_container1`**:
 
 ```bash
 apptainer build --sandbox sandbox_container1/ setup_container1.def
 ```
 
-### **Step 4: Build the second apptainer using **`setup_container2.def`**:**
+##### **Step III: Build the second apptainer using **`setup_container2.def`**:**
 
 ```bash
 apptainer build --sandbox sandbox_container2/ setup_container2.def
@@ -74,7 +113,7 @@ apptainer build --sandbox sandbox_container2/ setup_container2.def
 This step will take **~2 hours** as it builds ROOT from source file.
 
 
-### **Step 5: Enter apptainer and check root version**
+##### **Step IV: Enter apptainer and check root version**
 
 ```bash
 apptainer shell --writable sandbox_container2
@@ -84,7 +123,7 @@ root
 ```
 This should show `Welcome to ROOT 6.30/02`
 
-### **Step 6: GENIE installtion inside the apptainer**
+##### **Step V: GENIE installtion inside the apptainer**
 
 ```bash
 cd /opt/GENIE
@@ -108,7 +147,7 @@ make -j4
 If it does not resolve, contact amit.pal@niser.ac.in.
 
 
-### **Step 7: For further use of GENIE**
+### **Step VI: For further use of GENIE**
 
 Once GENIE is installed properly, you just need to do,
 ```bash
