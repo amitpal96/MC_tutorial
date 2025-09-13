@@ -52,8 +52,8 @@ Apptainer sandbox can be built in two different ways:
 
 #### *Option A: Using prebuild sif image*
 
-##### *Step I: Download sif image*
-Download `genie.sif` from [Google Drive](https://drive.google.com/drive/u/2/folders/1vAZHhfS5ZzjIlKdCbkXQQTngJK8MBuTV) and place it inside `**MC_tutorial**` directory
+     -##### *Step I: Download sif image*
+     Download `genie.sif` from [Google Drive](https://drive.google.com/drive/u/2/folders/1vAZHhfS5ZzjIlKdCbkXQQTngJK8MBuTV) and place it inside `**MC_tutorial**` directory
 
 ### **Step 2: Download tar files**
  Download tarballs of all required package from:
