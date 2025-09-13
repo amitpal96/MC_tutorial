@@ -147,7 +147,7 @@ make -j4
 If it does not resolve, contact amit.pal@niser.ac.in.
 
 
-### **Step VI: For further use of GENIE**
+##### **Step VI: For further use of GENIE**
 
 Once GENIE is installed properly, you just need to do,
 ```bash
