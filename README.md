@@ -46,11 +46,20 @@ git clone https://github.com/amitpal96/MC_tutorial.git
 cd MC_tutorial
 ```
 
+### **Step 2: Building apptainer sandbox**
+
+Apptainer sandbox can be built in two different ways:
+
+#### *Option A: Using prebuild sif image*
+
+#### *Step I: Download sif image*
+Download `genie.sif` from [Google Drive](https://drive.google.com/drive/u/2/folders/1vAZHhfS5ZzjIlKdCbkXQQTngJK8MBuTV) and place it inside `**MC_tutorial**` directory
+
 ### **Step 2: Download tar files**
  Download tarballs of all required package from:
  [Google Drive](https://drive.google.com/drive/u/2/folders/1n6KGQXpvhwNZMwsl38GaIteWHjbj1sKn) and place all of them inside `**MC_tutorial**` directory
 
-### **Step 3: Build the first container**
+### **Step 3: Build the first apptainer**
 Use the provided **`setup_container1.def`** file to build a sandbox environment called **`sandbox_container1`**:
 
 ```bash
