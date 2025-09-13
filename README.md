@@ -159,3 +159,8 @@ cd /opt/GENIE
 ```
 This should set up your GENIE. You are good to go.
 
+### **Step 3: Generate first event using GENIE**
+```bash
+gevgen -r 3 -n 100 -p 14 -t 1000010020 -e 1.0 --cross-sections gxspl-NUsmall.xml
+```
+This will create 100 neutrino events. If you do `ls`, you can see two new files have been created: `genie-mcjob-3.status` and `gntp.3.ghep.root`. 
