@@ -90,6 +90,8 @@ source do_end_genie.sh
 ```
 
 
+<details>
+<summary>Click here to view Option B steps</summary>
 
 #### *Option B: Build apptainer sandbox from scratch*
 This is more complicated and time taking process. I would recommend to go with *Option A*
@@ -158,6 +160,8 @@ cd /opt/GENIE
 ./do_end_genie.sh
 ```
 This should set up your GENIE. You are good to go.
+</details>
+
 
 ### **Step 3: Generate first event using GENIE**
 ```bash
