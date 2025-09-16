@@ -1,0 +1,11 @@
+# Ignore all PNG images
+*.png
+
+# Ignore all PDF files
+*.pdf
+
+# Ignore all ROOT files
+*.root
+
+# Ignore all XML files
+*.xml
