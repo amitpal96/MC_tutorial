@@ -9,3 +9,5 @@
 
 # Ignore all XML files
 *.xml
+
+*.cc~
