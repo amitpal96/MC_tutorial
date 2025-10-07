@@ -30,7 +30,7 @@ This repository will help to install **ROOT** and **neutrino Monte Carlo simulat
   sudo dnf install -y epel-release
   sudo dnf install -y apptainer
   ```
-  - In *Mac/Windows*, install apptainer via virtual machine (VM). For Mac follow: [Installation in Mac](https://apptainer.org/docs/admin/1.4/installation.html#mac), for Windows follow: [Installtion in Windows](https://apptainer.org/docs/admin/1.4/installation.html#windows)
+  - In *Mac/Windows*, install apptainer via virtual machine (VM) or WSL2 (for Windows). For Mac follow: [Installation in Mac](https://apptainer.org/docs/admin/1.4/installation.html#mac), for Windows follow: [Installtion in Windows](https://apptainer.org/docs/admin/1.4/installation.html#windows)
   - To check installtion, run
   ```bash
   apptainer --version
