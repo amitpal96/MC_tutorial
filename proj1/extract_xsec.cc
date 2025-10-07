@@ -163,11 +163,6 @@ void extract_xsec() {
     c1->SaveAs(Form("plots/qel_numu_%s.png", dirName.c_str()));
     c1->SaveAs(Form("plots/qel_numu_%s.pdf", dirName.c_str()));
 
-    // Repeat similar blocks for other interaction types (RES, DIS, etc.)
-    // For brevity, I will only show the QEL section, as the pattern is identical.
-    // ...
-    
-    //
     // RES Analysis
     //
     TGraph* res_cc_p = (TGraph*)dir->Get("res_cc_p");
