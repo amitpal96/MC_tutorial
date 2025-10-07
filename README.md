@@ -1,7 +1,7 @@
 #  Neutrino Monte Carlo Simulator with Apptainer
 
 Welcome! 
-This repository will help to install **ROOT** and **neutrino Monte Carlo simulation** software inside an independent **Apptainer**:
+This repository will help to install **ROOT** and **neutrino Monte Carlo simulation (GENIE)** software inside an independent **Apptainer**:
 
 ## Requirements
 
