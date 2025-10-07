@@ -84,11 +84,6 @@ Enter the apptainer shell with
 ```bash
 apptainer shell --writable genie_sandbox/
 ```
-Go to correct path
-```bash
-cd /opt/mywork/
-```
-
 
 <details>
 <summary>Click here to view Option B steps</summary>
