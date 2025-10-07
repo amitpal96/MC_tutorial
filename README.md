@@ -40,13 +40,8 @@ This repository will help to install **ROOT** and **neutrino Monte Carlo simulat
 
 ##  Setup Instructions
 
-### **Step 1: Clone git repository**
-```bash
-git clone https://github.com/amitpal96/MC_tutorial.git
-cd MC_tutorial
-```
 
-### **Step 2: Building apptainer sandbox**
+### **Step 1: Building apptainer sandbox**
 
 Apptainer sandbox can be built in two different ways: *Option A* and *Option B*. *Option A* is more simpler and easier way. 
 
@@ -78,15 +73,20 @@ genie
 ```
 You should see `Version 3.04.00` on your screen
 
-##### *Step VI: For further use of GENIE*
+##### *Step VI: Clone git repository*
+```bash
+git clone https://github.com/amitpal96/MC_tutorial.git
+cd MC_tutorial
+```
+
+##### *Step VII: For further use of GENIE*
 Enter the apptainer shell with
 ```bash
 apptainer shell --writable genie_sandbox/
 ```
-Go to correct path and setup environment
+Go to correct path
 ```bash
 cd /opt/mywork/
-source do_end_genie.sh
 ```
 
 
@@ -163,8 +163,9 @@ This should set up your GENIE. You are good to go.
 </details>
 
 
-### **Step 3: Generate first event using GENIE**
+### **Step 2: Generate first event using GENIE**
 ```bash
+cd /opt/mywork/
 gevgen -r 3 -n 100 -p 14 -t 1000010020 -e 1.0 --cross-sections gxspl-NUsmall.xml
 ```
 This will create 100 neutrino events. If you do `ls`, you can see two new files have been created: `genie-mcjob-3.status` and `gntp.3.ghep.root`. 
