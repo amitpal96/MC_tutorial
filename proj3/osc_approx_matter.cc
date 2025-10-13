@@ -124,9 +124,9 @@ void osc_approx_matter(const char* filename = "genie_output.root",
     // Histograms
     int nbins = 100;
     double Emin = 0.0, Emax = 5.0;
-    TH1D *h_no = new TH1D("h_no", "Unoscillated;E_{#nu} [GeV];Arb", nbins, Emin, Emax);
-    TH1D *h_vac = new TH1D("h_vac", "Oscillated (vacuum approx);E_{#nu} [GeV];Arb", nbins, Emin, Emax);
-    TH1D *h_mat = new TH1D("h_mat", "Oscillated (matter approx);E_{#nu} [GeV];Arb", nbins, Emin, Emax);
+    TH1D *h_no = new TH1D("h_no", ";E_{#nu} [GeV];Arb", nbins, Emin, Emax);
+    TH1D *h_vac = new TH1D("h_vac", ";E_{#nu} [GeV];Arb", nbins, Emin, Emax);
+    TH1D *h_mat = new TH1D("h_mat", ";E_{#nu} [GeV];Arb", nbins, Emin, Emax);
 
     Long64_t N = t->GetEntries();
     cout << "Entries: " << N << endl;
@@ -156,11 +156,11 @@ void osc_approx_matter(const char* filename = "genie_output.root",
     }
 
     // Draw
-    h_no->SetLineColor(kBlack); h_no->SetLineWidth(2);
-    h_vac->SetLineColor(kBlue); h_vac->SetLineWidth(2); h_vac->SetLineStyle(2);
-    h_mat->SetLineColor(kRed); h_mat->SetLineWidth(2); h_mat->SetLineStyle(3);
+    h_no->SetLineColor(kBlack); h_no->SetLineWidth(3);
+    h_vac->SetLineColor(kBlue); h_vac->SetLineWidth(3); h_vac->SetLineStyle(2);
+    h_mat->SetLineColor(kMagenta); h_mat->SetLineWidth(3); h_mat->SetLineStyle(3);
 
-    TCanvas *c = new TCanvas("c", "Oscillation comparison (approx)", 900, 700);
+    TCanvas *c = new TCanvas("c", "", 900, 700);
     h_no->Draw("HIST");
     h_vac->Draw("HIST SAME");
     h_mat->Draw("HIST SAME");
