@@ -134,6 +134,13 @@ void plot_genie_kinematics(const char* filename = "genie_output.root") {
     hE_nu_mec->SetLineColor(kMagenta);
     hE_nu_coh->SetLineColor(kOrange+1);
 
+    hE_nu_total->SetLineWidth(3);
+    hE_nu_qe->SetLineWidth(3);
+    hE_nu_res->SetLineWidth(3);
+    hE_nu_dis->SetLineWidth(3);
+    hE_nu_mec->SetLineWidth(3);
+    hE_nu_coh->SetLineWidth(3);
+    
     hE_nu_total->Draw("HIST");
     hE_nu_qe->Draw("HIST SAME");
     hE_nu_res->Draw("HIST SAME");
@@ -157,21 +164,27 @@ void plot_genie_kinematics(const char* filename = "genie_output.root") {
     c2->Divide(3,2);
     c2->cd(1);
     hE_lep->SetStats(0);
+    hE_lep->SetLineWidth(3);
     hE_lep->Draw();
     c2->cd(2);
     hQ2->SetStats(0);
+    hQ2->SetLineWidth(3);
     hQ2->Draw();
     c2->cd(3);
     hq3->SetStats(0);
+    hq3->SetLineWidth(3);
     hq3->Draw();
     c2->cd(4);
     hw->SetStats(0);
+    hw->SetLineWidth(3);
     hw->Draw();
     c2->cd(5);
     hx->SetStats(0);
+    hx->SetLineWidth(3);
     hx->Draw();
     c2->cd(6);
     hy->SetStats(0);
+    hy->SetLineWidth(3);
     hy->Draw();
     c2->SaveAs("kinematics.png");
 
