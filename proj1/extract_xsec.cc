@@ -163,6 +163,7 @@ void extract_xsec() {
     c1->SaveAs(Form("plots/qel_numu_%s.png", dirName.c_str()));
     c1->SaveAs(Form("plots/qel_numu_%s.pdf", dirName.c_str()));
 
+    //
     // RES Analysis
     //
     TGraph* res_cc_p = (TGraph*)dir->Get("res_cc_p");
@@ -306,6 +307,29 @@ void extract_xsec() {
     tot_cc->Draw("Lsame");
     tot_nc->Draw("Lsame");
 
+    int nPoints = tot_cc->GetN();
+    double *x = tot_cc->GetX();
+    double *y = tot_cc->GetY();
+    const char* outfile = "plots/XSec_CC.txt";
+    std::ofstream fout(outfile);
+    fout << "# log_10(Energy (GeV))\tCross-section (cm^2/GeV/nucleon)\n";
+
+    for (int i = 0; i < nPoints; ++i) {
+      fout << log(x[i]) << " " << y[i] << "\n";
+    }
+
+    int nPoints2 = tot_nc->GetN();
+    double *x2 = tot_nc->GetX();
+    double *y2 = tot_nc->GetY();
+    const char* outfile2 = "plots/XSec_NC.txt";
+    std::ofstream fout2(outfile2);
+    fout2 << "# log_10(Energy (GeV))\tCross-section (cm^2/GeV/nucleon)\n";
+
+    for (int i = 0; i < nPoints2; ++i) {
+      fout2 << log(x2[i]) << " " << y2[i] << "\n";
+    }
+
+    
     TLegend* l6 = new TLegend(0.6, 0.6, 0.9, 0.85, "");
     l6->AddEntry(total, "Total", "L");
     l6->AddEntry(tot_cc, "Total CC", "L");
